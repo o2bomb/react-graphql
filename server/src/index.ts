@@ -9,6 +9,8 @@ import { COOKIE_NAME, __prod__ } from "./constants";
 import { ApolloServer } from "apollo-server-express";
 import { buildSchema } from "type-graphql";
 import { HelloResolver } from "./resolvers/hello";
+import { Todo } from "./entities/Todo";
+import { TodoResolver } from "./resolvers/todo";
 
 const main = async () => {
   await createConnection({
@@ -16,7 +18,7 @@ const main = async () => {
     url: process.env.DATABASE_URL,
     logging: true,
     synchronize: true, // makes sure entities are synced with database. dont use in prod
-    entities: [],
+    entities: [Todo],
     migrations: [path.join(__dirname, "./migrations/*")],
   });
   // await conn.runMigrations();
@@ -52,7 +54,7 @@ const main = async () => {
 
   const apolloServer = new ApolloServer({
     schema: await buildSchema({
-      resolvers: [HelloResolver],
+      resolvers: [HelloResolver, TodoResolver],
       validate: false,
     }),
     context: ({ req, res }) => ({

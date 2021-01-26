@@ -11,7 +11,7 @@ COPY . .
 
 RUN yarn build
 
-# Binds to port 4000
-EXPOSE 4000
+# Binds to port 5000
+EXPOSE 5000
 
 CMD ["yarn", "start"]

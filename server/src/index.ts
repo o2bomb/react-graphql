@@ -68,10 +68,10 @@ const main = async () => {
   // ROUTES
   app.get("/hello", (_, res) => res.send("Hello World!"));
 
-  if (process.env.NODE_ENV === "production") {
-    app.use("/", express.static(path.join(__dirname, "..", "client", "dist")));
-    app.use("/public", express.static(path.join(__dirname, "..", "client", "public")));
-  }
+  // if (process.env.NODE_ENV === "production") {
+  //   app.use("/", express.static(path.join(__dirname, "..", "client", "dist")));
+  //   app.use("/public", express.static(path.join(__dirname, "..", "client", "public")));
+  // }
 
   app.listen(parseInt(process.env.PORT), () => {
     console.log("Express server started on port", process.env.PORT);

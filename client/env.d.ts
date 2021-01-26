@@ -7,6 +7,6 @@ declare namespace NodeJS {
     CORS_ORIGIN: string;
     PORT: string;
     SESSION_SECRET: string;
-    GRAPHQL_SERVER_URL: string;
+    NEXT_PUBLIC_GRAPHQL_SERVER_URL: string;
   }
 }

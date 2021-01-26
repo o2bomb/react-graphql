@@ -1,7 +1,20 @@
+.ul {
+  padding: 0;
+}
+
+.ul li {
+  font-size: 2rem;
+  list-style-type: none;
+}
+
+.form {
+  width: 100%;
+  max-width: 40rem;
+}
+
 .input {
   height: 3rem;
   width: 100%;
-  max-width: 40rem;
   padding: 1rem 2rem;
   border: .2rem solid black;
   box-shadow: none;

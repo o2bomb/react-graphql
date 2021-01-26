@@ -23,12 +23,27 @@ services:
       dockerfile: Dockerfile
     ports:
       - "${PORT}:${PORT}"
+    command: yarn dev:watch
     volumes:
       - ./server/src:/app/src
     depends_on:
       - postgres
       - redis
     env_file: 
+      - .env
+  client:
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    ports:
+      - 3000:3000
+    command: yarn dev
+    volumes:
+      - ./client/.next:/app/.next
+      - ./client/src:/app/src
+    depends_on:
+      - server
+    env_file:
       - .env
 volumes:
   postgres:

@@ -15,7 +15,7 @@ import { TodoResolver } from "./resolvers/todo";
 const main = async () => {
   await createConnection({
     type: "postgres",
-    url: process.env.DATABASE_URL,
+    url: `postgresql://postgres:${process.env.POSTGRES_PASSWORD}@postgres:5432/${process.env.DATABASE_NAME}`,
     logging: true,
     synchronize: true, // makes sure entities are synced with database. dont use in prod
     entities: [Todo],

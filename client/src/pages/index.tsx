@@ -7,7 +7,7 @@ export default function Home() {
   const { data, loading, error } = useGetTodosQuery();
   const [addTodo] = useAddTodoMutation({
     update(cache, { data: newData }) {
-      const { addTodo } = newData;
+      const { addTodo } = newData as any;
       cache.modify({
         fields: {
           todos(existingTodos = []) {

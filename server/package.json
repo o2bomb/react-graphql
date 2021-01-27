@@ -6,7 +6,7 @@
   "author": "Felix Tan",
   "license": "MIT",
   "scripts": {
-    "gen:env": "npx gen-env-types ../.env -e ..",
+    "gen:env": "npx gen-env-types ../.env -e .. && npx gen-env-types ../.env -e .",
     "build": "tsc",
     "watch": "tsc -w",
     "dev": "nodemon dist/index.js",
